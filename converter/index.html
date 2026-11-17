@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free File Converter Tools — OneJobKits</title>
+<meta name="description" content="Free online file converters that run right in your browser. Convert JPG, PNG, WEBP, PDF, Excel and CSV files. Your files never leave your computer — nothing is uploaded, ever.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23004C3F'/%3E%3Ctext x='32' y='42' font-size='28' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EOK%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script src="assets/pdf-lib.min.js"></script>
+<script src="assets/pdf.min.js"></script>
+<script src="assets/xlsx.full.min.js"></script>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="https://onejobkits.com">OneJobKits</a>
+    <nav>
+      <a href="https://onejobkits.com/pages/free-library">Free Library</a>
+      <a href="https://onejobkits.com">The Store</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Free File Converters</h1>
+    <p class="lede">Convert images, PDFs and spreadsheets — free, with no account and no catch.</p>
+    <div class="privacy-strip">
+      <strong>🔒 Your files never leave your computer.</strong>
+      Every conversion happens right here in your browser. Nothing is uploaded to a server,
+      nothing is stored, and there is nothing to sign up for. Close the tab and your files
+      are exactly where they always were — on your machine.
+    </div>
+  </section>
+
+  <h2 class="family-title">Everyday converters</h2>
+  <div class="grid">
+
+    <section class="card" id="tool-jpg-to-png">
+      <h3>JPG → PNG</h3>
+      <p class="desc">Turn a JPG photo into a PNG image.</p>
+      <label class="drop"><input type="file" class="file" accept=".jpg,.jpeg,image/jpeg"><span>Choose a JPG…</span></label>
+      <button class="go">Convert to PNG</button>
+      <div class="out" aria-live="polite"></div>
+    </section>
+
+    <section class="card" id="tool-png-to-jpg">
+      <h3>PNG → JPG</h3>
+      <p class="desc">Turn a PNG into a JPG. Transparent areas are placed on a white background, because JPG has no transparency.</p>
+      <label class="drop"><input type="file" class="file" accept=".png,image/png"><span>Choose a PNG…</span></label>
+      <button class="go">Convert to JPG</button>
+      <div class="out" aria-live="polite"></div>
+    </section>
+
+    <section class="card" id="tool-webp-convert">
+      <h3>WEBP → PNG or JPG</h3>
+      <p class="desc">Turn a WEBP image (the kind websites serve) into a PNG or JPG you can use anywhere.</p>
+      <label class="drop"><input type="file" class="file" accept=".webp,image/webp"><span>Choose a WEBP…</span></label>
+      <div class="opt-row">
+        <label>Output
+          <select class="opt-format">
+            <option value="png" selected>PNG</option>
+            <option value="jpg">JPG</option>
+          </select>
+        </label>
+      </div>
+      <button class="go">Convert</button>
+      <div class="out" aria-live="polite"></div>
+    </section>
+
+    <section class="card" id="tool-images-to-pdf">
+      <h3>Images → PDF</h3>
+      <p class="desc">Put one or more images (JPG, PNG, WEBP) into a single PDF, one image per page, in the order you pick them.</p>
+      <label class="drop"><input type="file" class="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" multiple><span>Choose images…</span></label>
+      <button class="go">Make PDF</button>
+      <div class="out" aria-live="polite"></div>
+    </section>
+
+    <section class="card" id="tool-pdf-to-images">
+      <h3>PDF → JPG or PNG</h3>
+      <p class="desc">Turn every page of a PDF into its own picture. Each page downloads as a separate image file.</p>
+      <label class="drop"><input type="file" class="file" accept=".pdf,application/pdf"><span>Choose a PDF…</span></label>
+      <div class="opt-row">
+        <label>Output
+          <select class="opt-format">
+            <option value="png" selected>PNG</option>
+            <option value="jpg">JPG</option>
+          </select>
+        </label>
+      </div>
+      <button class="go">Convert pages</button>
+      <div class="out" aria-live="polite"></div>
+    </section>
+
+    <section class="card" id="tool-merge-pdf">
+      <h3>Merge PDF</h3>
+      <p class="desc">Combine two or more PDFs into one file, in the order you pick them.</p>
+      <label class="drop"><input type="file" class="file" accept=".pdf,application/pdf" multiple><span>Choose PDFs…</span></label>
+      <button class="go">Merge PDFs</button>
+      <div class="out" aria-live="polite"></div>
+    </section>
+
+    <section class="card" id="tool-split-pdf">
+      <h3>Split PDF</h3>
+      <p class="desc">Pull pages out of a PDF. Either save a page range (like 1-3, 5) as one new PDF, or save every page as its own PDF.</p>
+      <label class="drop"><input type="file" class="file" accept=".pdf,application/pdf"><span>Choose a PDF…</span></label>
+      <div class="opt-row">
+        <label>Mode
+          <select class="opt-mode">
+            <option value="range" selected>Page range → one PDF</option>
+            <option value="each">Every page → separate PDFs</option>
+          </select>
+        </label>
+        <label class="range-label">Pages <input type="text" class="opt-range" value="1-3" size="8"></label>
+      </div>
+      <button class="go">Split PDF</button>
+      <div class="out" aria-live="polite"></div>
+    </section>
+
+    <section class="card" id="tool-resize-image">
+      <h3>Compress / Resize Image</h3>
+      <p class="desc">Shrink a JPG, PNG or WEBP: cap its size in pixels and, for JPG, dial the quality. The result shows the real before-and-after file sizes — no made-up percentages.</p>
+      <label class="drop"><input type="file" class="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"><span>Choose an image…</span></label>
+      <div class="opt-row">
+        <label>Max width/height
+          <select class="opt-maxdim">
+            <option value="0">Keep original</option>
+            <option value="1920">1920 px</option>
+            <option value="1280" selected>1280 px</option>
+            <option value="800">800 px</option>
+          </select>
+        </label>
+        <label>JPG quality <input type="range" class="opt-quality" min="30" max="100" value="80"> <span class="q-val">80%</span></label>
+      </div>
+      <button class="go">Compress</button>
+      <div class="out" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <h2 class="family-title">Office &amp; paperwork converters</h2>
+  <div class="grid">
+
+    <section class="card" id="tool-xlsx-to-csv">
+      <h3>Excel → CSV</h3>
+      <p class="desc">Turn an Excel sheet (.xlsx or .xls) into a plain CSV file. Pick which sheet to convert after you choose the file — formulas are exported as the values they last calculated to.</p>
+      <label class="drop"><input type="file" class="file" accept=".xlsx,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"><span>Choose an Excel file…</span></label>
+      <div class="opt-row">
+        <label>Sheet
+          <select class="opt-sheet"><option value="">(choose a file first)</option></select>
+        </label>
+      </div>
+      <button class="go">Convert to CSV</button>
+      <div class="out" aria-live="polite"></div>
+    </section>
+
+    <section class="card" id="tool-csv-to-xlsx">
+      <h3>CSV → Excel</h3>
+      <p class="desc">Turn a CSV file into a proper Excel workbook (.xlsx) you can open, sort and format in Excel or Google Sheets.</p>
+      <label class="drop"><input type="file" class="file" accept=".csv,text/csv,text/plain"><span>Choose a CSV…</span></label>
+      <button class="go">Convert to Excel</button>
+      <div class="out" aria-live="polite"></div>
+    </section>
+
+    <section class="card" id="tool-xlsx-to-pdf">
+      <h3>Excel → PDF (simple table)</h3>
+      <p class="desc">Print one sheet of an Excel file to a clean, simple PDF table. Best for lists, logs and registers — very wide sheets get trimmed to fit the page, so check the preview numbers before you rely on it.</p>
+      <label class="drop"><input type="file" class="file" accept=".xlsx,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"><span>Choose an Excel file…</span></label>
+      <div class="opt-row">
+        <label>Sheet
+          <select class="opt-sheet"><option value="">(choose a file first)</option></select>
+        </label>
+      </div>
+      <button class="go">Make PDF</button>
+      <div class="out" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <section class="honest-box">
+    <h2>What this hub does — and doesn't do</h2>
+    <p>Everything above genuinely works, and every tool on this page was tested on real files before it was listed here.
+    You will <strong>not</strong> find "PDF to Word" or "Word to PDF" on this page: a web browser cannot do those
+    conversions honestly at real quality, so we don't fake them or dress up plain text extraction as a Word document.
+    If a conversion can't be done properly right here in your browser, we'd rather tell you that than hand you a broken file.</p>
+  </section>
+
+  <section class="bridge">
+    <h2>Made by OneJobKits</h2>
+    <p>OneJobKits builds practical systems for people who run a job — binders, trackers, checklists and paperwork kits
+    for caregivers, bookkeepers, landlords, trades and small offices. These converters are free, the same way our
+    <a href="https://onejobkits.com/pages/free-library">Free Library</a> is free: useful things, no strings.</p>
+    <p><a class="cta" href="https://onejobkits.com/pages/free-library">Visit the Free Library</a>
+    <a class="cta secondary" href="https://onejobkits.com">Browse the store</a></p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Free tools from <a href="https://onejobkits.com">OneJobKits</a>. Your files are processed only in your own browser — nothing is uploaded, stored or tracked.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
