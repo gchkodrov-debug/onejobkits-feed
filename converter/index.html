@@ -192,6 +192,20 @@
     <p><a class="cta" href="https://onejobkits.com/pages/free-library">Visit the Free Library</a>
     <a class="cta secondary" href="https://onejobkits.com">Browse the store</a></p>
   </section>
+
+  <section class="share-box">
+    <h2>Share these free tools</h2>
+    <p>Know someone who fights with files? Send them this page — it's free for them too, and their files stay on their computer, just like yours.</p>
+    <div class="share-row">
+      <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fonejobkits.com%2Fpages%2Ffree-file-converters" target="_blank" rel="noopener">Facebook</a>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fonejobkits.com%2Fpages%2Ffree-file-converters&amp;text=Free%20file%20converters%20%E2%80%94%20JPG%2C%20PDF%2C%20Excel%20and%20more.%20No%20signup%2C%20and%20your%20files%20never%20leave%20your%20computer%3A" target="_blank" rel="noopener">X</a>
+      <a class="share-btn" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fonejobkits.com%2Fpages%2Ffree-file-converters&amp;description=Free%20file%20converters%20%E2%80%94%20JPG%2C%20PDF%2C%20Excel%20and%20more.%20No%20signup%2C%20and%20your%20files%20never%20leave%20your%20computer%3A" target="_blank" rel="noopener">Pinterest</a>
+      <a class="share-btn" href="https://wa.me/?text=Free%20file%20converters%20%E2%80%94%20JPG%2C%20PDF%2C%20Excel%20and%20more.%20No%20signup%2C%20and%20your%20files%20never%20leave%20your%20computer%3A%20https%3A%2F%2Fonejobkits.com%2Fpages%2Ffree-file-converters" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="share-btn" href="mailto:?subject=Free%20file%20converters%20%E2%80%94%20OneJobKits&amp;body=Free%20file%20converters%20%E2%80%94%20JPG%2C%20PDF%2C%20Excel%20and%20more.%20No%20signup%2C%20and%20your%20files%20never%20leave%20your%20computer%3A%20https%3A%2F%2Fonejobkits.com%2Fpages%2Ffree-file-converters">Email</a>
+      <button class="share-btn" id="copy-link-btn" type="button">Copy link</button>
+      <span class="copy-note" id="copy-note" aria-live="polite"></span>
+    </div>
+  </section>
 </main>
 
 <footer class="site-foot">
@@ -201,5 +215,27 @@
 </footer>
 
 <script src="app.js"></script>
+<script>
+(function(){
+  var btn=document.getElementById('copy-link-btn');
+  var note=document.getElementById('copy-note');
+  if(!btn||!note)return;
+  var url='https://onejobkits.com/pages/free-file-converters';
+  function done(){note.textContent='Copied ✓';setTimeout(function(){note.textContent='';},2500);}
+  function fallback(){
+    var ta=document.createElement('textarea');
+    ta.value=url;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}
+    catch(e){note.textContent=url;}
+    document.body.removeChild(ta);
+  }
+  btn.addEventListener('click',function(){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(done,fallback);
+    }else{fallback();}
+  });
+})();
+</script>
 </body>
 </html>
